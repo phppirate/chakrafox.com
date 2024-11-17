@@ -1,7 +1,8 @@
 <template>
-    <div ref="container" class="w-full min-h-screen text-white bg-[#07152F] flex items-center justify-center">
+    <Body style="background-color: #07152F">
+    <div ref="container" class="w-full full-viewport-height text-white bg-[#07152F] flex items-center justify-center">
         <ClientOnly>
-            <div class="flex flex-col items-center justify-center gap-12">
+            <div class="flex flex-col items-center justify-center gap-12 mb-28">
                 <div class="sr-only">
                     <h1>The Home of Chakra Fox</h1>
                     <p>
@@ -58,6 +59,7 @@
             </div>
         </ClientOnly>
     </div>
+    </Body>
 </template>
 
 
