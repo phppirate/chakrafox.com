@@ -109,4 +109,46 @@ const computedStyles = computed(() => ({
 const shadowStyles = computed(() => ({
     transform: `rotateX(${roll.value * 10}deg) rotateY(${tilt.value * 10}deg) translate(${(width.value * tilt.value * dampening) * -1}px, ${(height.value * roll.value * dampening)}px)`,
 }))
+
+onMounted(async () => {
+    if (
+        DeviceOrientationEvent
+        && typeof DeviceMotionEvent.requestPermission === 'function'
+    ) {
+        let permission: PermissionState
+        try {
+            permission = await DeviceOrientationEvent.requestPermission()
+        } catch (err) {
+            console.error(err)
+            return false
+        }
+        if (permission !== 'granted') {
+            console.error(new Error('Request to access the device orientation was rejected'))
+            return false
+        }
+    }
+})
+
+// const requestAccessAsync = async (): Promise<boolean> => {
+//     if (!DeviceOrientationEvent) {
+//         return false
+//     }
+//
+//     if (
+//         DeviceOrientationEvent.requestPermission
+//         && typeof DeviceMotionEvent.requestPermission === 'function'
+//     ) {
+//         let permission: PermissionState
+//         try {
+//             permission = await DeviceOrientationEvent.requestPermission()
+//         } catch (err) {
+//             setError(err)
+//             return false
+//         }
+//         if (permission !== 'granted') {
+//             setError(new Error('Request to access the device orientation was rejected'))
+//             return false
+//         }
+//     }
+
 </script>
