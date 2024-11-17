@@ -5,5 +5,24 @@ export default defineNuxtConfig({
         compatibilityVersion: 4
     },
     devtools: {enabled: true},
-    modules: ['@nuxtjs/tailwindcss', 'nuxt-icons']
+    modules: [
+      '@nuxtjs/tailwindcss',
+      '@nuxt/image',
+      '@nuxt/icon',
+      'shadcn-nuxt',
+      '@nuxtjs/color-mode',
+      '@vueuse/nuxt'
+    ],
+    shadcn: {
+        prefix: '',
+        componentDir: './app/components/ui'
+    },
+    icon: {
+        customCollections: [
+            {
+                prefix: 'icon',
+                dir: './app/assets/icons'
+            }
+        ]
+    }
 })
