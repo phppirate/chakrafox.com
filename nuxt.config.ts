@@ -18,7 +18,8 @@ export default defineNuxtConfig({
       '@nuxt/icon',
       'shadcn-nuxt',
       '@nuxtjs/color-mode',
-      '@vueuse/nuxt'
+      '@vueuse/nuxt',
+      '@nuxtjs/partytown'
     ],
     shadcn: {
         prefix: '',
